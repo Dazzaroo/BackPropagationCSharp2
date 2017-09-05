@@ -1,0 +1,7 @@
+c:\backprop\BackPropagation\BackPropagation\bin\Debug\BackPropagation.exe.config
+c:\backprop\BackPropagation\BackPropagation\bin\Debug\BackPropagation.exe
+c:\backprop\BackPropagation\BackPropagation\bin\Debug\BackPropagation.pdb
+c:\backprop\BackPropagation\BackPropagation\obj\Debug\BackPropagation.csprojResolveAssemblyReference.cache
+c:\backprop\BackPropagation\BackPropagation\obj\Debug\BackPropagation.csproj.CoreCompileInputs.cache
+c:\backprop\BackPropagation\BackPropagation\obj\Debug\BackPropagation.exe
+c:\backprop\BackPropagation\BackPropagation\obj\Debug\BackPropagation.pdb
