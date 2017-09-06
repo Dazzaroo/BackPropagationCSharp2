@@ -9,5 +9,6 @@ namespace BackPropagation
     public interface IHiddenLayerWeightChangeStrategy
     {
         void UpdateWeightsDeltas(ref IFeedForwardNetLayerRepository currentLayer, IFeedForwardNetLayerRepository previousLayer);
+        void UpdateWeights(ref IFeedForwardNetLayerRepository currentLayer);
     }
 }

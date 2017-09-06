@@ -24,6 +24,10 @@ namespace BackPropagation
             Randomize(maxWeight);
 
         }
+        public int LayerCount()
+        {
+            return feedForwardNet.Count;
+        }
         public void Randomize(double maxInitWeight)
         {
             foreach (FeedForwardNetLayer feedForwardNetLayer in feedForwardNet) {
@@ -43,11 +47,6 @@ namespace BackPropagation
         public FeedForwardNetLayer GetOutputLayer()
         {
             return feedForwardNet[feedForwardNet.Count - 1];
-        }
-
-        public int LayerCount()
-        {
-            return feedForwardNet.Count;
         }
 
         public bool IsFirstLayer(int currentLayerNo)

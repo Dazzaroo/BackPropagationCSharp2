@@ -10,5 +10,6 @@ namespace BackPropagation
     public interface IOutputLayerWeightChangeStrategy
     {
         void UpdateWeightsDeltas(ref IFeedForwardNetLayerRepository currentLayer, ITrainingSetItemRepository trainingSetItem);
+        void UpdateWeights(ref IFeedForwardNetLayerRepository currentLayer);
     }
 }

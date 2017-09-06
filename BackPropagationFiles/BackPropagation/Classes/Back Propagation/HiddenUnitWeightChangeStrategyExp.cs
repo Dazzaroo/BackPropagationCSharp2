@@ -7,9 +7,9 @@ using Training;
 
 namespace BackPropagation
 {
-    class HiddenUnitWeightChangeStrategyExp : IHiddenLayerWeightChangeStrategy
+    class HiddenUnitWeightChangeStrategyExp :  UpdateWeightsAbs, IHiddenLayerWeightChangeStrategy
     {
-        IBackPropagationConstants backPropagationConstants;
+     
 
         public void UpdateWeightsDeltas(ref IFeedForwardNetLayerRepository currentLayer, IFeedForwardNetLayerRepository previousLayer)
         {
@@ -35,7 +35,7 @@ namespace BackPropagation
         }
 
 
-        public void UpdateWeights(ref IFeedForwardNetLayerRepository currentLayer)
+       /* public void UpdateWeights(ref IFeedForwardNetLayerRepository currentLayer)
         {
             for (int toNo = 0; toNo < currentLayer.GetToUnitCount(); toNo++)
             {
@@ -50,11 +50,11 @@ namespace BackPropagation
                 currentLayer.SetLayerBiasChange(toNo, biasChange);
                 currentLayer.AddLayerBias(toNo, biasChange);
             }
-        }
+        }*/
 
-        public HiddenUnitWeightChangeStrategyExp(IBackPropagationConstants backPropagationConstants)
+        public HiddenUnitWeightChangeStrategyExp(IBackPropagationConstants backPropagationConstants) : base(backPropagationConstants)
         {
-            this.backPropagationConstants = backPropagationConstants;
+          //  this.backPropagationConstants = backPropagationConstants;
         }
 
     }

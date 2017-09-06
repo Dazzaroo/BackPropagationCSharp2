@@ -15,6 +15,10 @@ namespace BackPropagation
 
         int LayerCount();
 
+        bool IsFirstLayer(int currentLayerNo);
+
+        bool IsLastLayer(int currentLayerNo);
+
         FeedForwardNetLayer GetOutputLayer();
 
         void FeedForwardPass(ISquashFunction squashFunction, ITrainingSetItemRepository trainingSetItem);

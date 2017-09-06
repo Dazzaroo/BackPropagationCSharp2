@@ -23,13 +23,50 @@ namespace BackPropagation
             ErrorMeasure errorMeasure;
             feedForwardNet.FeedForwardPass(squashFunction, trainingSetItem);
             errorMeasure = ForwardPassError(trainingSetItem);
+            UpdateNetworkAfterTrainingItem(trainingSetItem);
 
             return (errorMeasure);
         }
 
-        public void UpdateWeights()
+        public void UpdateNetworkAfterTrainingItem(ITrainingSetItemRepository trainingSetItem)
         {
-           
+            UpdateDeltas(trainingSetItem);
+            UpdateWeights(trainingSetItem);
+        }
+
+        public void UpdateDeltas(ITrainingSetItemRepository trainingSetItem)
+        {
+           IFeedForwardNetLayerRepository previousLayer = null;
+           for (int layerNo = feedForwardNet.LayerCount() - 1; layerNo >=0;  layerNo--)
+            {
+                IFeedForwardNetLayerRepository currentLayer = feedForwardNet.GetLayer(layerNo);
+                if (feedForwardNet.IsLastLayer(layerNo))
+                {
+                    outputUnitWeightStrategy.UpdateWeightsDeltas(ref currentLayer, trainingSetItem);
+                } else
+                {
+                    hiddenUnitWeightStrategy.UpdateWeightsDeltas(ref currentLayer, previousLayer);
+                }
+                previousLayer = currentLayer;
+            }
+        }
+
+        public void UpdateWeights(ITrainingSetItemRepository trainingSetItem)
+        {
+            IFeedForwardNetLayerRepository previousLayer = null;
+            for (int layerNo = feedForwardNet.LayerCount() - 1; layerNo >= 0; layerNo--)
+            {
+                IFeedForwardNetLayerRepository currentLayer = feedForwardNet.GetLayer(layerNo);
+                if (feedForwardNet.IsLastLayer(layerNo))
+                {
+                    outputUnitWeightStrategy.UpdateWeights(ref currentLayer);
+                }
+                else
+                {
+                    hiddenUnitWeightStrategy.UpdateWeights(ref currentLayer);
+                }
+                previousLayer = currentLayer;
+            }
         }
 
         public void FeedForwardTrain()
