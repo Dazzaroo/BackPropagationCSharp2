@@ -24,6 +24,35 @@ namespace BackPropagation
             Randomize(maxWeight);
 
         }
+
+        public void ShowWeights()
+        {
+            for (int layerCount=0; layerCount < LayerCount(); layerCount++)
+            {
+                FeedForwardNetLayer currentLayer = GetLayer(layerCount);
+
+                for (int fromNo = 0; fromNo < currentLayer.GetFromUnitCount(); fromNo++)
+                {
+                    Console.WriteLine("act layer {0} fromNo {1} = {2} ", layerCount, fromNo, currentLayer.GetFromUnitActivation(fromNo).ToString());
+                }
+
+                for (int toNo = 0; toNo < currentLayer.GetToUnitCount(); toNo++)
+                {
+                    Console.WriteLine("act layer {0} toNo {1} = {2} ", layerCount, toNo, currentLayer.GetToUnitActivation(toNo).ToString());
+                }
+
+                    for (int toNo=0; toNo < currentLayer.GetToUnitCount(); toNo++)
+                {
+                    for (int fromNo=0; fromNo < currentLayer.GetFromUnitCount(); fromNo++)
+                    {
+                        Console.WriteLine("layer {0} From {1} To {2} Weight {3}", layerCount, fromNo, toNo, currentLayer.GetLayerWeight(fromNo, toNo).ToString());
+                    }
+                    Console.WriteLine("layer {0} To {1} bias {2} ", layerCount, toNo, currentLayer.GetLayerBias(toNo).ToString());
+
+                    Console.WriteLine("--------");
+                }
+            }
+        }
         public int LayerCount()
         {
             return feedForwardNet.Count;

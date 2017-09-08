@@ -86,8 +86,12 @@ namespace BackPropagation
                     totalError += errorMeasure.Error;
                     if (!errorMeasure.HasLearned)
                         hasLearned = false;
+                   // feedForwardNet.ShowWeights();
                 }
+                Console.WriteLine("Iterations: {0} Error {1}", iterationsCount,totalError.ToString());
             }
+            Console.ReadLine();
+         
 
         }
 

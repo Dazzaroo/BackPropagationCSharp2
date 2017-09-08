@@ -22,7 +22,10 @@ namespace BackPropagation
         FeedForwardNetLayer GetOutputLayer();
 
         void FeedForwardPass(ISquashFunction squashFunction, ITrainingSetItemRepository trainingSetItem);
-     
+
+        void ShowWeights();
+
+
 
     }
 }

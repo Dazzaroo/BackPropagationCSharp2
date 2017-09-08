@@ -16,7 +16,7 @@ namespace BackPropagation
             {
                 for (int fromNo = 0; fromNo < currentLayer.GetFromUnitCount(); fromNo++)
                 {
-                    double weightChange = backPropagationConstants.LearningRate * currentLayer.GetToUnitDelta(toNo) +
+                    double weightChange = backPropagationConstants.LearningRate * currentLayer.GetFromUnitActivation(fromNo) * currentLayer.GetToUnitDelta(toNo) +
                                           currentLayer.GetLayerWeightChange(fromNo, toNo) * backPropagationConstants.Momentum;
                     currentLayer.SetLayerWeightChange(fromNo, toNo, weightChange);
                     currentLayer.AddLayerWeight(fromNo, toNo, weightChange);

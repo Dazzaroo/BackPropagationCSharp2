@@ -51,6 +51,7 @@
     <Compile Include="Classes\Back Propagation\FeedForwardNetLayer.cs" />
     <Compile Include="Classes\Back Propagation\HiddenUnitWeightChangeStrategyExp.cs" />
     <Compile Include="Classes\Back Propagation\OutputUnitWeightChangeStrategyExp.cs" />
+    <Compile Include="Classes\Back Propagation\UpdateWeightsAbs.cs" />
     <Compile Include="Classes\Examples\XorBackPropagationTest.cs" />
     <Compile Include="Classes\Training\TrainingSet.cs" />
     <Compile Include="Classes\Training\TrainingSetItem.cs" />

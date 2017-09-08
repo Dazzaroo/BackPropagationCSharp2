@@ -29,7 +29,7 @@ namespace BackPropagationTest
                 new double[] {0}
             };
             TrainingSet trainingSet = new TrainingSet(inputs, outputs);
-            IBackPropagationConstants backPropagationConstants = new BackPropagationConstants(learningRate: 0.1, momentum: 0.9, maxInitWeight: 0.5, outputTolerance: 0.1, maxIterations: 10000  );
+            IBackPropagationConstants backPropagationConstants = new BackPropagationConstants(learningRate: 0.25, momentum: 0.9, maxInitWeight: 0.5, outputTolerance: 0.1, maxIterations: 10000  );
             FeedForwardNet xorNet = new FeedForwardNet(new int[] { 2, 2, 1 }, backPropagationConstants.MaxInitWeight);
             IBackPropagationAlgorithm backPropagationAlgorithm = new BackPropagationStandardAlgorithm(backPropagationConstants);
             IBackPropagationTrainer backPropagationTrainer = new BackPropagationTrainer(xorNet, backPropagationAlgorithm, trainingSet);
